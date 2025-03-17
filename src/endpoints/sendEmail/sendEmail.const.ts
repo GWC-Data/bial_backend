@@ -1,0 +1,1 @@
+export const SENDMAIL_ERROR = 'Email Sending Error';

@@ -1,0 +1,1 @@
+{"version":3,"file":"sendEmail.const.js","names":["SENDMAIL_ERROR","exports"],"sources":["../../../src/endpoints/sendEmail/sendEmail.const.ts"],"sourcesContent":["export const SENDMAIL_ERROR = 'Email Sending Error';"],"mappings":";;;;;;AAAO,MAAMA,cAAc,GAAAC,OAAA,CAAAD,cAAA,GAAG,qBAAqB","ignoreList":[]}

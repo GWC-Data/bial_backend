@@ -1,0 +1,187 @@
+/employee:
+  get:
+    summary: Get all employeeDetails
+    description: Retrieves a list of all employeeDetails
+    tags:
+      - Employee Details
+    responses:
+      '200':
+        description: List of all employeeDetails
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                employeeDetails:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      employee_Name:
+                        type: string
+                      exam_Id:
+                        type: integer
+                      exam_name:
+                        type: string
+                      date: 
+                        type: string
+                      score:
+                        type: string
+                      result:
+                        type: string
+                      certificate:
+                        type: string
+        
+      '404':
+        description: No employee details found
+
+      '500':
+        description: Internal server error
+
+
+  post:
+    summary: Create a new employee details
+    description: Creates a new employee with provided details.
+    operationId: employee details
+    security:
+      - bearerAuth: []
+    tags:
+      - Employee Details
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              employee_Name:
+                type: string
+              exam_Id:
+                type: integer
+              exam_name:
+                type: string
+              date: 
+                type: string
+              score:
+                type: string
+              result:
+                type: string
+              certificate:
+                type: string
+    
+    responses:
+      '201':
+        description: employee details created successfully
+
+      '500':
+        description: employee details creation error
+
+/employee/{id}:
+  put:
+    summary: Update a employee details by ID
+    description: Updates the information of employee details by ID.
+    operationId: updateEmployee Details
+    security:
+      - bearerAuth: []
+    tags:
+      - Employee Details
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: ID of the employee details to update
+        schema:
+          type: integer
+          example: 1
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              result:
+                type: string
+              certificate:
+                type: string
+        
+    responses:
+      '200':
+        description: Employee details updated successfully
+      
+      '404':
+        description: Employee details not found
+  
+      '500':
+        description: Internal server error
+
+  delete:
+    summary: Delete a employee details by ID
+    description: Deletes a employee details by ID.
+    operationId: deleteEmployee details
+    security:
+      - bearerAuth: []
+    tags:
+      - Employee Details
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: ID of the employee details to delete
+        schema:
+          type: integer
+          example: 1
+    responses:
+      '200':
+        description: employee details deleted successfully
+       
+      '404':
+        description: Employee details not found
+      
+      '500':
+        description: Internal server error
+      
+  get:
+    summary: Get a employee details by ID
+    tags:
+      - Employee Details
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: ID of the employee details
+        schema:
+          type: integer
+          example: 1
+    responses:
+      '200':
+        description: employee details details
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                employeeDetails:
+                  type: object
+                  properties:
+                    employee_Name:
+                      type: string
+                    exam_Id:
+                      type: integer
+                    exam_name:
+                      type: string
+                    date: 
+                      type: string
+                    score:
+                      type: string
+                    result:
+                      type: string
+                    certificate:
+                      type: string
+                      
+      '404':
+        description: employee details not found
+      
+      '500':
+        description: Internal server error
+      
